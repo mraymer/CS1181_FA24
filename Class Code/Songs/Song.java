@@ -4,7 +4,12 @@ public class Song{
     public Song(){
         setTitle("Untitled");
     }
-
+    
+    /***
+     * Song - create a new song
+     * 
+     * @param title - The song title (string)
+     */
     public Song(String title){
         setTitle(title);
     }
