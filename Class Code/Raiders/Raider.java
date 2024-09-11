@@ -12,6 +12,7 @@ public class Raider {
         this.firstName = firstName;
     }
 
+    @Override
     public String toString(){
         return this.lastName + ", " + this.firstName;
     }
