@@ -1,5 +1,3 @@
-import javax.management.RuntimeErrorException;
-
 public abstract class Shape {
     private int x;
     private int y;
