@@ -7,14 +7,17 @@ public abstract class Shape {
         y = 0;
     }
 
-    public Shape(int x, int y){
+    public Shape(int x, int y) throws ShapeCoordinatesException{
         this.setX(x);
         this.setY(y);
     }
 
-    public void setX(int x){
+    public void setX(int x) throws ShapeCoordinatesException{
         if (x < 0){
-            throw new RuntimeException();
+            throw new ShapeCoordinatesException();
+        }
+        if (x == 3){
+            throw new IllegalStateException();
         }
         this.x = x;
     }

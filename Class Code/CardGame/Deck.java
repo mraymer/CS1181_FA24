@@ -19,9 +19,10 @@ public class Deck {
     public Deck(Deck oldDeck){
         // NOT GOOD ENOUGH:
         //this.cards = oldDeck.cards;
+        
         cards = new ArrayList<>();
         for (Card currentCard : oldDeck.cards){
-            this.cards.add(currentCard);
+            this.cards.add(new Card(currentCard));
         }
     }
 
