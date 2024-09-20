@@ -1,6 +1,6 @@
 import java.io.IOException;
 
-public class ShapeCoordinatesException extends IOException{
+public class ShapeCoordinatesException extends RuntimeException{
     public ShapeCoordinatesException(){
         super();
     }

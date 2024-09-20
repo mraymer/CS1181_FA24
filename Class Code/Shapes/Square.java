@@ -6,7 +6,7 @@ public class Square extends Shape implements Drawable, Comparable<Square>{
         sideLength = 1;
     }
 
-    public Square(int x, int y, int sideLength){
+    public Square(int x, int y, int sideLength) throws ShapeCoordinatesException{
         super(x, y);
         setSideLength(sideLength);
     }
@@ -28,7 +28,7 @@ public class Square extends Shape implements Drawable, Comparable<Square>{
         System.out.println("Drew the square at " + getLocation());
     }
 
-    public void move(int x, int y){
+    public void move(int x, int y) throws ShapeCoordinatesException{
         this.setX(x);
         this.setY(y);
     }
