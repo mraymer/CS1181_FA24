@@ -4,9 +4,7 @@ import java.awt.*;
 public class FirstGUI {
     public static void main(String[] args) {
 
-        int clicks = 0;
-
-        JFrame window = new JFrame("First GUI");
+        MainWindow window = new MainWindow("First GUI");
         window.setSize(300, 300);
         window.setLocation(250, 250);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -18,16 +16,22 @@ public class FirstGUI {
 
         JButton button = new JButton("Click me");
         content.add(button);
+        ButtonListener myListener = new ButtonListener("CLICKED");
+        button.addActionListener(myListener);
 
 
         JButton button2 = new JButton("Click me 2");
         content.add(button2);
+        myListener = new ButtonListener("ALSO CLICKED");
+        button2.addActionListener(myListener);
 
         for (int i = 0; i < 5; i++){
             JButton newButton = new JButton("Button " + i);
             content.add(newButton);
         }
 
+        JLabel clickLabel = new JLabel("Total clicks: 0");
+        content.add(clickLabel);
 
         window.setVisible(true);
 
@@ -39,9 +43,9 @@ public class FirstGUI {
         // //window2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // window2.setVisible(true);
 
-        for (int i = 0; i < 100000; i++){
-            System.out.println(i);
-        }
-        System.out.println("About to exit the program...");
+        // for (int i = 0; i < 100000; i++){
+        //     System.out.println(i);
+        // }
+        System.out.println("About to exit main...");
     }
 }
