@@ -15,7 +15,7 @@ public class MainWindow extends JFrame{
 
     // Fields
     private int clicks = 0;
-    JLabel clickLabel;
+    private JLabel clickLabel;
 
     public MainWindow(String title){
         super(title);
