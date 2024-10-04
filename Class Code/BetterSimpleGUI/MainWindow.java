@@ -27,5 +27,18 @@ public class MainWindow extends JFrame{
         });
         content.add(theButton);
 
+        // If we want a bunch of buttons using the same ActionListener,
+        // we can do it like this:
+        // Anonymous Inner Class for our ActionListener
+        theButton = new JButton("Clicks: 0");
+        ActionListener theListener =new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                clicks++;
+                theButton.setText("Clicks: " + clicks);
+            }
+        };
+        
+
     }
 }
