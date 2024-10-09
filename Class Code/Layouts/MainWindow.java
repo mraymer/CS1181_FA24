@@ -1,11 +1,14 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class MainWindow extends JFrame{
     // Fields
     private int clicks = 0;
     private JButton theButton;
+    JPanel midContent;
 
     // Methods
     public MainWindow(String title){
@@ -15,13 +18,48 @@ public class MainWindow extends JFrame{
         content.setLayout(new BorderLayout());
         this.setContentPane(content);
 
-        JButton newButton = new JButton("Top");
-        content.add(newButton, BorderLayout.NORTH);
 
-        newButton = new JButton("West");
+
+        JMenuBar menuBar = new JMenuBar();
+        content.add(menuBar, BorderLayout.NORTH);
+
+        JMenu colorMenu = new JMenu("Color");
+        menuBar.add(colorMenu);
+
+        ArrayList<String> colors = new ArrayList<>(Arrays.asList("Blue",
+            "Yellow", "Red", "Green", "White"));
+
+        // Create an actionListener for menu items
+        ActionListener colorListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                String selectedColor = e.getActionCommand();
+                
+                switch(selectedColor){
+                    case "Blue":
+                        midContent.setBackground(Color.BLUE);
+                        break;
+                    case "Yellow":
+                        midContent.setBackground(Color.YELLOW);
+                        break;
+                    case "Red":
+                        midContent.setBackground(Color.RED);
+                        break;
+
+                }
+            }
+        };
+        
+        for (String color : colors){
+            JMenuItem colorItem = new JMenuItem(color);
+            colorItem.addActionListener(colorListener);
+            colorMenu.add(colorItem);
+        }
+
+        JButton newButton = new JButton("West");
         content.add(newButton, BorderLayout.WEST);
 
-        JPanel midContent = new JPanel();
+        midContent = new JPanel();
         content.add(midContent, BorderLayout.CENTER);
 
         JCheckBox newCheckBox = new JCheckBox("True or false?", false);
