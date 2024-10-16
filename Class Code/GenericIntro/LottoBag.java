@@ -2,8 +2,8 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class LottoBag {
-    private List<Integer> contents;
+public class LottoBag<E> {
+    private List<E> contents;
     private Random rng;
 
     public LottoBag() {
@@ -11,8 +11,25 @@ public class LottoBag {
         rng = new Random();
     }
 
-    public void add(Integer newValue){
+    public void add(E newValue){
         contents.add(newValue);
+    }
+
+    public E draw() throws RuntimeException {
+        if (contents.size() < 1) {
+            throw new RuntimeException("Draw from empty bag");
+        }
+
+        int index = rng.nextInt(contents.size());
+        return contents.remove(index);
+    }
+
+    public boolean isEmpty(){
+        return contents.isEmpty();
+    }
+
+    public void dump(){
+        contents.clear();
     }
     
 }
