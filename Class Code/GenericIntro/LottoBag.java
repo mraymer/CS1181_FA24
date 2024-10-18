@@ -21,6 +21,7 @@ public class LottoBag<E> {
         }
 
         int index = rng.nextInt(contents.size());
+        //E newItem = new E();
         return contents.remove(index);
     }
 
@@ -30,6 +31,16 @@ public class LottoBag<E> {
 
     public void dump(){
         contents.clear();
+    }
+
+    public void addAll(ArrayList<? extends E> newStuff){
+        for(E i : newStuff){
+            this.add(i);
+        }
+    }
+
+    public String toString(){
+        return contents.toString();
     }
     
 }

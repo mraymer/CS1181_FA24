@@ -1,8 +1,10 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.Collections;
 import javax.swing.JButton;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.Arrays;
 
 public class GenericIntro{
@@ -60,16 +62,47 @@ public class GenericIntro{
         //     System.out.println(((JButton) o).getText());
         // }
 
-        Comparator<Integer> myComparator = new Comparator<Integer>(){
-            @Override
-            public int compare(Integer first, Integer second){
-                return 0;
-            }
-        };
+       List<Number> l = new ArrayList<>();
+       l.add(8);
+       l.add(9.2);
+       l.add(-5);
 
-        ArrayList<Integer> l = new ArrayList<>(Arrays.asList(4, 7, 9, 2, 1));
-        Collections.sort(l, (first, second) -> {return 0;});
-        System.out.println(l);
+       Set<Integer> s = new HashSet<>();
+       s.add(5);
+       s.add(3);
+       s.add(5);
+       s.add(2);
 
+       l.addAll(s);
+       System.out.println(l);
+
+       LottoBag<Number> b = new LottoBag<>();
+       b.add(7);
+       b.add(9);
+       b.add(3);
+
+       ArrayList<Integer> newStuff = new ArrayList<>();
+       newStuff.add(2);
+       newStuff.add(4);
+       newStuff.add(6);
+
+       b.addAll(newStuff);
+       System.out.println(b);
+
+       Integer[] a = {2, 4, 6, 8, 10};
+       printArray(a);
+
+    }
+
+    public static <T> void printArray(T[] stuff){
+        System.out.print("[");
+        for (T item : stuff){
+            System.out.print(item + ", ");
+        }
+        System.out.println("]");
+    }
+
+    public static <T, E> E foo(T first, E second){
+        return second;
     }
 }
