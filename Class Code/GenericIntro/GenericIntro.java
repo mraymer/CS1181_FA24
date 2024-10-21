@@ -92,6 +92,9 @@ public class GenericIntro{
        Integer[] a = {2, 4, 6, 8, 10};
        printArray(a);
 
+       System.out.println(min3(9, 21, 17));
+       System.out.println(min3("Hello", "World", "Baseball"));
+
     }
 
     public static <T> void printArray(T[] stuff){
@@ -105,4 +108,17 @@ public class GenericIntro{
     public static <T, E> E foo(T first, E second){
         return second;
     }
+
+    public static <T extends Comparable<T>> T min3(T first, T second, T third){
+        T smallest = first;
+        if (second.compareTo(smallest) < 0){
+            smallest = second;
+        }
+        if (third.compareTo(smallest) < 0){
+            smallest = third;
+        }
+
+        return smallest;
+    }
 }
+
