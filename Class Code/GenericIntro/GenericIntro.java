@@ -6,6 +6,9 @@ import javax.swing.JButton;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Arrays;
+import java.awt.Rectangle;
+import java.awt.geom.Ellipse2D;
+import java.awt.geom.Rectangle2D;
 
 public class GenericIntro{
     public static void main(String[] args){
@@ -94,6 +97,14 @@ public class GenericIntro{
 
        System.out.println(min3(9, 21, 17));
        System.out.println(min3("Hello", "World", "Baseball"));
+
+       Rectangle2D r = new Rectangle2D.Float(7, 3, 20, 0.01F);
+       Ellipse2D e = new Ellipse2D.Float(6, 2, 2, 2);
+       if (e.intersects(r)){
+        System.out.println("INTERSECT");
+       }
+
+       System.out.println(r);
 
     }
 
