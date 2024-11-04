@@ -60,13 +60,7 @@ class Main {
         inFile.close();
         System.out.println(words);
 
-        foo(10);
     }
 
-    public static void foo(int count){
-        if (count > 0){
-            System.out.println("FOO!: " + count--);
-            foo(count);
-        }
-    }
+ 
 }
