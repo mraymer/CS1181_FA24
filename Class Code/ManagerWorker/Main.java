@@ -23,6 +23,8 @@ public class Main {
         System.out.println("All threads done!");
         System.out.println(theBoss);
 
+
+        // Using a lambda expression to create a Runnable object:
         Thread myThread = new Thread(() -> {
             for (int i = 0; i < 10; i++){
                 System.out.println(i);
